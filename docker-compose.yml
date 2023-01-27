@@ -2,8 +2,8 @@ version: '3'
 
 services:
   mongodb:
-    image: mongo
     hostname: mongo
+    image: mongo
     environment:
       - MONGO_INITDB_ROOT_USERNAME=lappis
       - MONGO_INITDB_ROOT_PASSWORD=lappis
@@ -12,3 +12,27 @@ services:
       - 27017:27017
     volumes:
       - ./mongodb:/data/db
+    networks:
+      - network_gces
+
+  app:
+    depends_on:
+      - mongodb
+    build: .
+    volumes:
+      - /app
+      
+  metabase:
+    image: metabase/metabase
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./metabase:/metabase-data
+    depends_on:
+      - mongodb
+    networks:
+      - network_gces
+
+networks:
+  network_gces:
+    driver: bridge
