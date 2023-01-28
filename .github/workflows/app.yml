@@ -48,5 +48,5 @@ jobs:
       - run: ls -la
       - name: Generate documentarion
         run: sphinx-build -b html . ./docs
-      -run: ls -la
+      - run: ls -la
 
