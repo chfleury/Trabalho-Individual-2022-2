@@ -49,5 +49,5 @@ jobs:
           git config --global user.name 'Christian Fleury'
           git config --global user.email 'chfleurysiq@gmail.com'
           git add pyproject.toml
-          git commit -m "Automated report"
+          git commit -m "Automated Version Update"
           git push
