@@ -42,5 +42,9 @@ jobs:
       - run: ls -la
       - name: Generate documentarion
         run: sphinx-build -b html . ./docs
+      - name: Publish
+        run: |
+          poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
+          poetry publish
 
 
