@@ -35,7 +35,9 @@ jobs:
       - run: mkdir temp
       - name: Set up Doxygen
         uses: mattnotmitt/doxygen-action@v1.9.5
-      - run: doxygen Doxyfile
+        with:
+            working-directory: '.'
+            doxyfile-path: './Doxyfile'
       - name: Set up Breathe 4.34.0
         run: |
           python -m pip install --upgrade pip
