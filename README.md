@@ -34,17 +34,32 @@ As etapas de 4 e 5 são relacionadas à configuração do pipeline de CI e CD.
 
 A versão inicial do sistema contém o metabase no backend cujo funcionamento requer uma instalação de um banco de dados Mongo. A primeira etapa do trabalho é de configurar um container somente para o banco de dados com as credenciais especificadas na descrição da aplicação e testar o funcionamento do mesmo.
 
+### RESOLUÇÃO
+
+Foi criado um arquivo docker-compose.yml que continha apenas um container do mongodb a partir da imagem "mongo"
+
+
 ## Containerização da aplicação + metabase
 
 Nesta etapa, tanto o a aplicação python quanto o metabase/banco deverão estar funcionando em containers individuais.
 
 Deverá ser utilizado um orquestrador (Docker Compose) para gerenciar comunicação entre os containers além do uso de credenciais, networks, volumes, entre outras configurações necessárias para a correta execução da aplicação.
 
+### RESOLUÇÃO
+
+Foi criado um Dockerfile para o app (lib python).
+No arquivo docker-compose.yml foram adicionados dois containeres novos, o do metabase e o do app (que builda a partir da Dockerfile). Foi também criada uma network (tipo bridge) para comunicação entre os conteineres do metabase e do mongodb.
+
 ## Gestão de dependencias e pacotes python
 
 Configurar o gerenciador de dependencias e pacotes python, o poetry, para gerar um pacote pip da solução. Publicar a biblioteca
 
 https://python-poetry.org
+
+### RESOLUÇÃO
+
+Foi rodado '''poetry init''' e criado um arquivo pyproject.toml e foram adicionadas configurações da lib e todas suas dependencias, após isso foi rodado o comando '''poetry publish --build''', para publicar a lib manualmente no PyPI.
+Link da lib: https://pypi.org/project/tf-gces/
 
 ## Documentação automatizada
 
