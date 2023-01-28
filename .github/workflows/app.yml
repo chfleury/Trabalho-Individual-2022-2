@@ -44,5 +44,10 @@ jobs:
           poetry version patch
           poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
           poetry publish --build
-
-
+      - name: Commit version update
+        run: |
+          git config --global user.name 'Christian Fleury'
+          git config --global user.email 'chfleurysiq@gmail.com'
+          git add pyproject.toml
+          git commit -m "Automated report"
+          git push
