@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tf-gces"
-version = "0.1.3"
+version = "0.1.4"
 description = ""
 authors = ["Christian Fleury <chfleurysiq@gmail.com>"]
 readme = "README.md"
