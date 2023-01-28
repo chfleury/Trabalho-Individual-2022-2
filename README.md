@@ -93,11 +93,13 @@ Depois rodei os testes '''poetry run pytest tests''', como não há nenhum teste
 
 Após isso o job faz uma checagem de lint, utilizei o pylint (que foi adicionado nas dependencias do poetry e ja instalado), e rodo '''poetry run pylint --fail-under=7 src''', para passar, tem que ter uma qualidade de código acima 7/10. Para atingir essa qualidade, com ajuda da extensão black, formatei todos os arquivos do projeto e commitei. (A qualidade inicial era 2/10). Com isso a etapa de lint passa.
 
-Depois de instalar dependencias, rodar testes e lint, realizo o build com o poetry.
-
 Para gerar a documentação, instalei o oxygen manualmente no ubuntu que está rodando o workflow, e gerei o XML a partir do Doxyfile que foi criado na parte de documentação. Instalei o breathe e o Sphinx através do Pip e gerei a documentação final com o Sphinx em HTML na pasta docs, adicionei essa pasta também no pyproject.toml para ela ser publicada junto com a biblioteca no PyPI.
 
+Depois de instalar dependencias, rodar testes, lint e gerar a documentação atualizada, realizo o build com o poetry. 
 
+Após o build é finalmente possível publicar a nova release no PyPI, eu gero uma nova versão (ex: de 0.0.1 vai para 0.0.2) e publico do PyPI. Link da biblioteca: https://pypi.org/project/tf-gces/ .
+
+A lib contém também a pasta docs, com a documentação atualizada gerada pelo sphinx.
 
 
 ## Avaliação
