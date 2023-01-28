@@ -26,10 +26,24 @@ jobs:
         run: poetry run pytest tests    
       - name: Run lint
         run: poetry run pylint --fail-under=7 src
-      - run: ls -la
-      - name: Generate documentation
-        run: mkdir temp
+# todo build
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ammaraskar/sphinx-action@master
+      - run: mkdir temp
+      - name: Set up Doxygen
         uses: mattnotmitt/doxygen-action@v1.9.5
         with:
             working-directory: 'temp/'
             doxyfile-path: '.'
+      - name: Set up Breathe 4.34.0
+        run: |
+          python -m pip install --upgrade pip
+          pip install breathe==4.34.0
+      - name: Run Sphinx
+        run: sphinx-build -b html . ./docs
+      - run: rm -r temp
+
