@@ -6,7 +6,8 @@ authors = ["Christian Fleury <chfleurysiq@gmail.com>"]
 readme = "README.md"
 packages = [
     {include = "src"},
-    {include = "tests"}
+    {include = "tests"},
+    {include = "docs"}
 ]
 
 [tool.poetry.dependencies]
