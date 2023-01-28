@@ -97,7 +97,9 @@ Para gerar a documentação, instalei o oxygen manualmente no ubuntu que está r
 
 Depois de instalar dependencias, rodar testes, lint e gerar a documentação atualizada, realizo o build com o poetry. 
 
-Após o build é finalmente possível publicar a nova release no PyPI, eu gero uma nova versão (ex: de 0.0.1 vai para 0.0.2) e publico do PyPI. Link da biblioteca: https://pypi.org/project/tf-gces/ .
+Após o build é finalmente possível publicar a nova release no PyPI, eu gero uma nova versão (ex: de 0.0.1 vai para 0.0.2) e publico do PyPI. Link da biblioteca: https://pypi.org/project/tf-gces/ . A geração da nova versão deve alterar a versão presente no pyproject.toml, para isso, a versão é incrementada com o comando '''poetry version patch''' e a publicação é realizada, após isso a alteração do arquivo pyproject.toml é automaticamente commitada na main, para que quando o proximo release for realizado, ele já tenha a versão atualizada no pyproject.toml e não de erro. Esse commit e push feitos no workflow é automatizado e não faz o worflow rodar em loop infinito.
+
+O projeto está na versão 0.1.4, e quando eu fizer o push desse readme irá para versão tf-gces 0.1.5, que será a versão final publicada por mim.
 
 A lib contém também a pasta docs, com a documentação atualizada gerada pelo sphinx.
 
