@@ -1,7 +1,5 @@
 import sys
-
-
-
+import os
 
 project = 'tf-gces'
 copyright = '2023, Christian Fleury'
@@ -12,7 +10,7 @@ sys.path.append("/home/chfleury/Music/breathe-4.34.0/breathe")
 extensions = ['breathe' ]
 
 
-breathe_projects = {"myproject": "/home/chfleury/luby/tf-gces/xml"}
+breathe_projects = {"myproject": os. getcwd() +"/xml"}
 
 breathe_default_project = "myproject"# Configuration file for the Sphinx documentation builder.
 
