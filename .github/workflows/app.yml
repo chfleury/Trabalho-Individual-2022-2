@@ -20,6 +20,10 @@ jobs:
         uses: abatilo/actions-poetry@v2
         with:
           poetry-version: "1.3.2"
-      - name: View poetry --help
+      - name: Install dependencies
         run: poetry install
+      - name: Run tests
+        run: poetry run pytest tests    
+      - name: Run lint
+        run: poetry run pylint src
       - run: ls -la
