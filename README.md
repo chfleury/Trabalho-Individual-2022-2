@@ -65,6 +65,8 @@ Link da lib: https://pypi.org/project/tf-gces/
 
 Gerar a documentação da biblioteca de forma automatizada utilizando o doxygen para gerar informacoes da biblioteca e o sphinx para criar documentação https://www.sphinx-doc.org
 
+### RESOLUÇÃO
+Primeiro instalei o doxygen localmente e criei uma doxyfile, nessa doxyfile coloquei o README.md e o diretório src de forma recursiva para documentar todos os arquivos. Também configurei para gerar apenas XML. Após isso consegui gerar os XML com o comando '''doxygen Doxyfile'''. Instalei o breathe e o sphinx, criei o arquivo de configuração do sphinx conf.py e configurei o breathe la dentro e o adicionei como extensão. Após isso rodei '''sphinx-build -b html . ./sphinx''' para gerar uma documentação em HTML na pasta ./sphinx.
 
 
 ##  Integração Contínua (CI)
